@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+        <title>ANYTIME CLINIC</title>
+        <style>
+            body {font-family: Arial, Helvetica, sans-serif; }
+            
+            input[type=text], select, textarea {
+              width: 95%;
+              padding: 12px;
+              border: 1px solid rgb(127, 209, 241);
+              border-radius: 4px;
+              box-sizing: border-box;
+              margin-top: 6px;
+              margin-bottom: 10px;
+             
+            }
+            
+            input[type=submit],input[type=reset] {
+              background-color:  #0b7cc7c0;
+              color: white;
+              padding: 12px 20px;
+              border: none;
+              border-radius: 4px;
+              cursor: pointer;
+            }
+            
+            input[type=submit]:hover,input[type=reset]:hover {
+              background-color: #24b7f1;
+              transition: 0.3s ease;
+            }
+            label{
+              font-weight: 600;
+              color: #023d5fb6;
+            }
+            input[type=radio],input[type=checkbox],input[type=date] {
+              margin-top: 10px;
+              margin-bottom: 8px;
+            }
+            
+            
+            .container {
+              border-radius: 5px;
+              background-color: #d9e4f3da;
+              padding: 20px;
+              width: 68%;
+              height: 109em;
+              margin-left: 11em;
+              margin-right:15em;
+              
+              
+             
+            }
+            table td {
+              border: 1px solid rgb(174, 181, 189);
+              padding: 0.2em 0.25em;
+              width:16.5em }
+            table th {
+              
+              
+                color: #3e5058;
+                font-weight: 600;
+                padding: 0.5 0.75em 0.75em 0.75em;
+                text-align: justify;
+                
+                 }
+             table tbody tr {
+                
+                  
+                  border-right: 0; 
+                  border-bottom: 0;
+                  text-align:justify}
+              .vl {
+                    border-left: 5px solid rgb(12, 130, 177);
+                    height: 111em;
+                    position:absolute;
+                    left: 51.5%;
+                    margin-left: -33em;
+                    top: 19em;
+                  }
+
+                  .hl {
+                    border-right: 5px solid rgb(12, 130, 177);
+                    height: 111em;
+                    position:absolute;
+                    right: -26.5%;
+                    margin-right: 35em;
+                    top: 19em;
+                  }
+                  a{
+                    text-decoration: none;color:grey;font-weight:bolder; margin-left:38em;
+                    
+                  }
+                  a:hover{
+                    color: rgb(151, 86, 86);
+                    
+                    
+                  }
+            </style>
+    </head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <body>
+        <h1 style="color: rgb(12, 130, 177); text-align:center; font-size:38px ">ANYTIME CLINIC</h1>
+        <h2 style="color:grey; text-align:center;">Dr. Arpita Singh</h2>
+        <h3 style="color:grey; text-align:center;">X lane, Y city <br> Ph.no: 1252626262,2663633535 <br> Email: anytimeclininc@gmail.com</h3>
+        <h3 style="color:grey; text-align:center;">Timings: Monday-Friday:8AM to 5PM, Saturday-Sunday:9AM to 4:30PM</h3><br>
+        <hr style=" border: 2px solid rgb(12, 130, 177); margin-left:2em; margin-right:2em">
+        <h2 style="color: rgb(12, 130, 177); text-align:center;">Patient Records</h2> <br>
+        <a href="{% url 'insertPatients' %}" >Add new Patient</a> <br><br>
+
+        <table style="border-style:solid ; width: 80em;  " align=center  >
+          <thead style="font-size: 17px; background-color: rgb(194, 230, 245);">
+              <tr>
+                
+               <th>Prescription Date-Time</th>
+              <th>ID </th>
+              <th> Name</th>
+              <th>Gender</th>
+              <th>DOB</th>
+              <th>Contact No.</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>Diagnosed with</th>
+              <th>Allergies</th>
+              <th>Health Conditions</th>
+              <th>Prescribed Drugs</th>
+              <th>Units</th>
+              <th>Dosage</th>
+
+              </tr>
+          </thead>
+
+          <tbody>
+          {% for result in data %}
+          <tr>
+            
+            <td>{{result.present_date}}</td>
+          <td>{{result.p_id}}</td>
+          <td>{{result.p_name}}</td>
+          <td>{{result.p_gender}}</td>
+           <td>{{result.p_dob}}</td>   
+          <td>{{result.p_contact}}</td>
+           <td>{{result.p_address}}</td>
+           <td>{{result.p_city}}</td>
+           <td>{{result.p_diagnosed}}</td>
+           <td>{{result.p_allergies}}</td>
+           <td>{{result.p_health}}</td>
+           <td>{{result.p_drug}}</td>
+           <td>{{result.p_unit}}</td>
+           <td>{{result.p_dosage}}</td>
+           <td><a href="edit/{{result.id}}"style="margin-left:0em;">Edit</a></td>
+           <td><a href="delete/{{result.id}}" onclick="return confirm('Are you sure you want to delete the record?')" style="margin-left:0em;">Delete</a></td>
+           
+
+        
+           
+            </tr>
+            {% endfor %}
+          </tbody>
+           
+        
+           
+          </table>
+          </body>
+          </html>
+

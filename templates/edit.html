@@ -1,0 +1,218 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+        <title>ANYTIME CLINIC</title>
+        <style>
+            body {font-family: Arial, Helvetica, sans-serif; }
+            
+            input[type=text], select, textarea {
+              width: 95%;
+              padding: 12px;
+              border: 1px solid rgb(127, 209, 241);
+              border-radius: 4px;
+              box-sizing: border-box;
+              margin-top: 6px;
+              margin-bottom: 10px;
+             
+            }
+            
+            input[type=submit],input[type=reset] {
+              background-color:  #0b7cc7c0;
+              color: white;
+              padding: 12px 20px;
+              border: none;
+              border-radius: 4px;
+              cursor: pointer;
+              margin-left: 30em;
+            }
+            
+            input[type=submit]:hover,input[type=reset]:hover {
+              background-color: #24b7f1;
+              transition: 0.3s ease;
+              
+            }
+            label{
+              font-weight: 600;
+              color: #023d5fb6;
+            }
+            input[type=radio],input[type=checkbox],input[type=date] {
+              margin-top: 10px;
+              margin-bottom: 8px;
+            }
+            
+            
+            .container {
+              border-radius: 5px;
+              background-color: #d9e4f3da;
+              padding: 20px;
+              width: 68%;
+              height: 109em;
+              margin-left: 11em;
+              margin-right:15em;
+              
+              
+             
+            }
+            table td {
+              border: 1px solid rgb(174, 181, 189);
+              padding: 0.2em 0.25em;
+              width:16.5em }
+            table th {
+              
+              
+                color: #3e5058;
+                font-weight: 600;
+                padding: 0.5 0.75em 0.75em 0.75em;
+                text-align: justify;
+                
+                 }
+             table tbody tr {
+                
+                  
+                  border-right: 0; 
+                  border-bottom: 0;
+                  text-align:justify}
+              .vl {
+                    border-left: 5px solid rgb(12, 130, 177);
+                    height: 111em;
+                    position:absolute;
+                    left: 51.5%;
+                    margin-left: -33em;
+                    top: 19em;
+                  }
+
+                  .hl {
+                    border-right: 5px solid rgb(12, 130, 177);
+                    height: 111em;
+                    position:absolute;
+                    right: -26.5%;
+                    margin-right: 35em;
+                    top: 19em;
+                  }
+                  a{
+                    text-decoration: none;color:grey;font-weight:bolder; margin-left:38em;
+                    margin-left: 37em;
+                    
+                  }
+                  a:hover{
+                    color: rgb(151, 86, 86);
+                    
+                    
+                  }
+            </style>
+    </head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <body>
+        <h1 style="color: rgb(12, 130, 177); text-align:center; font-size:38px ">ANYTIME CLINIC</h1>
+        <h2 style="color:grey; text-align:center;">Dr. Arpita Singh</h2>
+        <h3 style="color:grey; text-align:center;">X lane, Y city <br> Ph.no: 1252626262,2663633535 <br> Email: anytimeclininc@gmail.com</h3>
+        
+        <hr style=" border: 2px solid rgb(12, 130, 177); margin-left:2em; margin-right:2em">
+        <h2 style="color: rgb(12, 130, 177); text-align:center;">Patient Records</h2> <br> <br>
+      
+        <h3 style="text-align: center; color:rgb(12, 96, 250)">
+          {% if messages %}
+          {% for mess in messages %}
+            <b>{{mess}}</b>
+          {% endfor %}
+         {% endif %}
+        </h3>
+        <a href="{% url 'showPatients' %}" >Go to Home Page</a> <br> <br>
+        
+
+        <div class="container">
+            <form  method="POST" action="/update/{{Prescription.id}}" >
+              {% csrf_token %}
+              <h3 style="color:grey; text-align:left; margin-left:0em"> Date & Time: <input type="text" name="present_date" id="present_date" value="{{Prescription.present_date}}"> </h3><br>
+              <label for="p_name">PATIENT NAME</label>
+              <br>
+              <input type="text" id="p_name" name="p_name" value="{{Prescription.p_name}}" >
+              <br><br>
+          
+              <label for="p_id">PATIENT ID NO.</label>
+              <br>
+              <input type="text" id="p_id" name="p_id"value="{{Prescription.p_id}}" readonly >
+              <br><br>
+          
+          
+              <label for="p_img">PATIENT IMAGE:</label><br>
+              <input type="file" style="margin-top: 14px;" id="p_img" name="p_img" accept="image/*" img src="{{Prescription.p_img}}" ><br>
+              <br><br>
+              <label for="p_contact">CONTACT NUMBER</label>
+              <br>
+              <input type="text" id="p_contact" name="p_contact" value="{{Prescription.p_contact}}" >
+              <br><br>
+              <label for="p_dob">DATE OF BIRTH:</label>
+              <input type="date" name="p_dob" style="  margin-right:20px" value="{{Prescription.p_dob}}" >
+              <label for="p_age" >AGE:</label>
+            
+              <input type="text" id="p_age" name="p_age" style="width: 15%; height:10px; margin-right:20px" value="{{Prescription.p_age}}" >
+              <br><br>
+              <label for="p_gender">GENDER</label>
+               <br> 
+              <input type="text" id="male" name="p_gender" value="{{Prescription.p_gender}}"  >
+              <br>
+          
+              <br>
+              <label for="p_diagnosed">DIAGNOSED WITH:</label> <br>
+              <input type="text" id="p_diagnosed" name="p_diagnosed"  style="height:100px" value="{{Prescription.p_diagnosed}}" >
+              <br> 
+              <label for="p_blood">Blood Pressure:</label> <input type="text" style="width: 11%; height:10px; margin-right:17px" id="p_blood" name="p_blood" value="{{Prescription.p_blood}}"  >
+              <label for="p_rate">Pulse Rate:</label> <input type="text" style="width: 11%; height:10px; margin-right:17px" id="p_rate" name="p_rate" value="{{Prescription.p_rate}}"  >
+              <label for="p_height">Height (cm):</label> <input type="text" style="width: 11%; height:10px; margin-right:17px" id="p_height" name="p_height" value="{{Prescription.p_height}}"  >
+              <label for="p_weight">Weight (kgs):</label> <input type="text" style="width: 11%; height:10px; " id="p_weight" name="p_weight" value="{{Prescription.p_weight}}"  >
+              <br><br>
+              <label for="p_allergies">Is the patient allergic to food, medicine or any other item?</label> <br>
+              <input type="text" id="p_check" name="p_check" value="{{Prescription.p_check}}" >
+             
+              <input type="text" id="p_allergies" name="p_allergies" placeholder="Patient's Allergies" style="height:100px" value="{{Prescription.p_allergies}}" >
+              <br>
+          
+              <label for="p_health">Health conditions</label> <br>
+              <input type="text" id="p_health" name="p_health" placeholder="Patient's Health conditions (if any)" style="height:100px" value="{{Prescription.p_health}}" >
+              <br>
+          
+              <label for="p_city">CITY</label> <br>
+              <input type="text" id="p_city" name="p_city" value="{{Prescription.p_city}}" >
+              <br>
+             <br>
+          
+              <label for="p_address">ADDRESS</label>
+              <br>
+              <input type="text" id="p_address" name="p_address" placeholder="Patient's Address" style="height:100px" value="{{Prescription.p_address}}" >
+          <br> <br>
+          
+          <table style="border:1px ; border-style:solid ; border-collapse:collapse; "  >
+            <thead style="font-size: 16px; background-color: rgb(194, 230, 245);">
+                <tr>
+                <th> Drugs</th>
+                <th style="text-align: center;">Unit (Tablet/Syrup)</th>
+                <th>Dosage (per Day)</th>
+                </tr>
+            </thead>
+
+          
+            <tbody>
+              <tr>
+                  <td><input type="text" id="p_drug" style="height:150px; width:25em; margin-top:0px " name="p_drug" value="{{Prescription.p_drug}}"  ></td>
+                  <td><input type="text" id="p_unit" style="height:150px; width:17em" name="p_unit" value="{{Prescription.p_unit}}" ></td>
+                  <td><input type="text" id= "p_dosage" style="height:150px; width:20em" name="p_dosage" value="{{Prescription.p_dosage}}" ></td>
+              </tr>
+          
+
+             
+            </table>
+ 
+            <br><br>
+            
+
+
+
+        </table>
+        <input type="submit" value="Update Record"> <br><br><br>
+        
+
+      </form>
+        </body>
+        </html>
