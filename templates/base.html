@@ -71,7 +71,7 @@
                     position:absolute;
                     left: 51.5%;
                     margin-left: -33em;
-                    top: 19em;
+                    top: 21.5em;
                   }
 
                   .hl {
@@ -80,7 +80,7 @@
                     position:absolute;
                     right: -26.5%;
                     margin-right: 35em;
-                    top: 19em;
+                    top: 21.5em;
                   }
 
                   a{
@@ -99,6 +99,8 @@
         <h2 style="color:grey; text-align:center;">Dr. Arpita Singh</h2>
         <h3 style="color:grey; text-align:center;">X lane, Y city <br> Ph.no: 1252626262,2663633535 <br> Email: anytimeclininc@gmail.com</h3>
         <h3 style="color:grey; text-align:center;">Timings: Monday-Friday:8AM to 5PM, Saturday-Sunday:9AM to 4:30PM</h3><br>
+        <br>
+        <a href="{% url 'showPatients' %}" style="margin-left:36em;">Go to Home Page</a>
         
         <hr style=" border: 2px solid rgb(12, 130, 177); margin-left:10em; margin-right:12.5em">
 
@@ -220,8 +222,7 @@
 
               <input type="submit" value="Submit" onclick="return confirm('Patient added successfully!!')" style="margin-left:55em">
           
-              <br><br><br>
-              <a href="{% url 'showPatients' %}" >Go to Home Page</a>
+
 
  
 
