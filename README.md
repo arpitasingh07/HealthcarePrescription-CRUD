@@ -17,4 +17,4 @@ This is a healthcare prescription website where in the doctor can add, delete, u
 <img src="Image/Screenshot (112).png" height="400">
 
 <h3>6. Patient details deleted from Database </h3>
-<img src="Image/Screenshot (112).png" height="400">
+<img src="Image/Screenshot (113).png" height="400">
