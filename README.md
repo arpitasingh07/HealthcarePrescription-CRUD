@@ -1,5 +1,5 @@
 # HealthcarePrescription-CRUD
-This is a healthcare prescription website where in the doctor can add, delete, update and read patient details. (CRUD operations)
+This is a healthcare prescription website where in the doctor can add, delete, update and read patient details. (CRUD operations) <br>
 Using Django and Postgresql
 
 <h3>1. Home Page </h3>
